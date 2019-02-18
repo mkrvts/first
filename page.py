@@ -8,13 +8,9 @@ class BasePage(object):
     """Base class to initialize the base page that will be called from all pages"""
     def __init__(self, driver):
         self.driver = driver
-        self.driver.implicitly_wait(30)
 
 class HomePage(BasePage):
     """Home page action methods come here"""
-    def home_page(self, url):
-        return self.driver.get(url)
-
     def accept_data(self):
         self.driver.switch_to.frame('ufti-iframe')
         self.driver.find_element_by_xpath('//span[contains(text(), "Okej, tack!")]').click()
